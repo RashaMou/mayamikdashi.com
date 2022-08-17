@@ -1,10 +1,9 @@
-import StrapiClient from '../lib/strapiClient';
+import { client } from '../lib/strapiClient';
 import ReactMarkdown from 'react-markdown';
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from '../styles/films.module.css';
 
-const client = new StrapiClient();
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const Films = ({ films }) => {
