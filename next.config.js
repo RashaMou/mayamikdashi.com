@@ -6,7 +6,7 @@ const nextConfig = {
     newNextLinkBehavior: true,
   },
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'mayamikdashi.herokuapp.com'],
   },
 };
 
