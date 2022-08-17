@@ -1,0 +1,24 @@
+.films {
+  display: flex;
+}
+.film {
+  display: flex;
+  flex-direction: column;
+}
+.title_block {
+  display: flex;
+}
+.title {
+  margin: 30px 15px 30px 0;
+  cursor: pointer;
+}
+.year {
+  cursor: pointer;
+}
+.triangle {
+  margin-top: 5px;
+}
+.film_image {
+  position: relative;
+  height: 300px;
+}

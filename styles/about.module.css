@@ -1,0 +1,23 @@
+.link {
+  text-decoration: none;
+  color: #999;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+.link:hover {
+  color: black;
+  border-bottom: 2px solid black;
+  cursor: pointer;
+}
+.bios {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  cursor: pointer;
+  letter-spacing: 3px;
+}
+.selected {
+  color: black;
+  cursor: pointer;
+}
