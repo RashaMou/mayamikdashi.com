@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import StrapiClient from '../lib/strapiClient';
+import { client } from '../lib/strapiClient';
 import styles from '../styles/about.module.css';
 import ReactMarkdown from 'react-markdown';
-
-const client = new StrapiClient();
 
 const Home = ({ bios }) => {
   const [bio, setBio] = useState('long');
