@@ -3,6 +3,7 @@ import { client } from '../lib/strapiClient';
 import styles from '../styles/about.module.css';
 import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -17,6 +18,7 @@ const Home = ({ bios }) => {
           alt='image'
           layout='fill'
           objectFit='contain'
+          priority={true}
         />
       </div>
       <ul className={styles.bios}>
@@ -38,9 +40,19 @@ const Home = ({ bios }) => {
         </li>
       </ul>
       {bio == 'long' ? (
-        <ReactMarkdown>{bios.data.attributes.long_bio}</ReactMarkdown>
+        <motion.div
+          animate={{ x: 30 }}
+          transition={{ type: 'spring', damping: 15 }}
+        >
+          <ReactMarkdown>{bios.data.attributes.long_bio}</ReactMarkdown>
+        </motion.div>
       ) : (
-        <ReactMarkdown>{bios.data.attributes.short_bio}</ReactMarkdown>
+        <motion.div
+          animate={{ x: 30 }}
+          transition={{ type: 'spring', damping: 15 }}
+        >
+          <ReactMarkdown>{bios.data.attributes.short_bio}</ReactMarkdown>
+        </motion.div>
       )}
     </>
   );
