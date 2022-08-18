@@ -2,12 +2,23 @@ import { useState } from 'react';
 import { client } from '../lib/strapiClient';
 import styles from '../styles/about.module.css';
 import ReactMarkdown from 'react-markdown';
+import Image from 'next/image';
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const Home = ({ bios }) => {
   const [bio, setBio] = useState('long');
 
   return (
     <>
+      <div className={styles.image_container}>
+        <Image
+          src={`${baseUrl}${bios.data.attributes.frontpageImage.data.attributes.url}`}
+          alt='image'
+          layout='fill'
+          objectFit='contain'
+        />
+      </div>
       <ul className={styles.bios}>
         <li
           onClick={() => setBio('long')}
@@ -36,7 +47,7 @@ const Home = ({ bios }) => {
 };
 
 export const getStaticProps = async () => {
-  const response = await client.fetchData('bio');
+  const response = await client.fetchData('bio?populate=*');
   return {
     props: {
       bios: response,
