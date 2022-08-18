@@ -59,7 +59,7 @@
   display: inline-block;
   content: '';
   border-top: 2px solid #ddd;
-  width: 19%;
+  /* width: 19%; */
   margin-top: 0.8rem;
 }
 .footer_links {
@@ -74,6 +74,20 @@
 }
 
 /* Media Queries */
+
+@media (min-width: 1658px) {
+  .top_menu::before,
+  .top_menu::after {
+    width: 19%;
+  }
+}
+
+@media (min-width: 1321px) and (max-width: 1657px) {
+  .top_menu::before,
+  .top_menu::after {
+    width: 9%;
+  }
+}
 
 @media (max-width: 1320px) {
   .top_menu::before,
