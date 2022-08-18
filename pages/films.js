@@ -3,9 +3,6 @@ import ReactMarkdown from 'react-markdown';
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from '../styles/films.module.css';
-import { motion } from 'framer-motion';
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const Films = ({ films }) => {
   const [selected, setSelected] = useState({
@@ -31,12 +28,7 @@ const Films = ({ films }) => {
       <div>
         {films.map((film) => {
           return (
-            <motion.div
-              animate={{ x: 30 }}
-              transition={{ type: 'spring', damping: 15 }}
-              className={styles.films}
-              key={film.id}
-            >
+            <div className={styles.films} key={film.id}>
               <div className={styles.film} onClick={() => handleClick(film)}>
                 <div className={styles.title_block}>
                   <h2 className={styles.title}>{film.attributes.title}</h2>
@@ -44,13 +36,10 @@ const Films = ({ films }) => {
                 </div>
                 <>
                   {selected.isOpen && selected.id == film.id ? (
-                    <motion.div
-                      animate={{ y: 30 }}
-                      transition={{ type: 'spring', stiffness: 100 }}
-                    >
+                    <div>
                       <div className={styles.film_image}>
                         <Image
-                          src={`${baseUrl}${film.attributes.image.data[0].attributes.url}`}
+                          src={film.attributes.image.data[0].attributes.url}
                           objectFit='contain'
                           layout='fill'
                           alt='image'
@@ -58,11 +47,11 @@ const Films = ({ films }) => {
                         />
                       </div>
                       <ReactMarkdown>{selected.film_description}</ReactMarkdown>
-                    </motion.div>
+                    </div>
                   ) : null}
                 </>
               </div>
-            </motion.div>
+            </div>
           );
         })}
       </div>
