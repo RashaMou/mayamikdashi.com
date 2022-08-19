@@ -55,6 +55,7 @@ export const getStaticProps = async () => {
     props: {
       bios: response,
     },
+    revalidate: 10,
   };
 };
 

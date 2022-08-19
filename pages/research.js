@@ -12,6 +12,7 @@ export const getStaticProps = async () => {
     props: {
       research: data,
     },
+    revalidate: 10,
   };
 };
 

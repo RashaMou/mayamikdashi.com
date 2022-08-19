@@ -65,6 +65,7 @@ export const getStaticProps = async () => {
     props: {
       films: response.data,
     },
+    revalidate: 10,
   };
 };
 export default Films;
