@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { client } from '../lib/strapiClient';
 import styles from '../styles/about.module.css';
-import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
+import HTML from '../components/html';
 
 const Home = ({ bios }) => {
   const [bio, setBio] = useState('long');
@@ -37,13 +37,9 @@ const Home = ({ bios }) => {
         </li>
       </ul>
       {bio == 'long' ? (
-        <div>
-          <ReactMarkdown>{bios.data.attributes.long_bio}</ReactMarkdown>
-        </div>
+        <HTML content={bios.data.attributes.long_bio} />
       ) : (
-        <div>
-          <ReactMarkdown>{bios.data.attributes.short_bio}</ReactMarkdown>
-        </div>
+        <HTML content={bios.data.attributes.short_bio} />
       )}
     </>
   );

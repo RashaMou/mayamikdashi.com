@@ -1,5 +1,5 @@
 import { client } from '../lib/strapiClient';
-import ReactMarkdown from 'react-markdown';
+import HTML from '../components/html';
 import Image from 'next/image';
 import styles from '../styles/events.module.css';
 
@@ -28,8 +28,8 @@ const Events = ({ events }) => {
               <h4>{event.attributes.Title}</h4>
               <div>{formatDate(event.attributes.Date)}</div>
               <div>{event.attributes.Time}</div>
-              <ReactMarkdown>{event.attributes.Address}</ReactMarkdown>
-              <ReactMarkdown>{event.attributes.Description}</ReactMarkdown>
+              <HTML content={event.attributes.Address} />
+              <HTML content={event.attributes.Description} />
             </div>
           </div>
         );

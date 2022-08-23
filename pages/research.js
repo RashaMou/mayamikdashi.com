@@ -1,8 +1,8 @@
 import { client } from '../lib/strapiClient';
-import ReactMarkdown from 'react-markdown';
+import HTML from '../components/html';
 
 const Research = ({ research }) => {
-  return <ReactMarkdown>{research}</ReactMarkdown>;
+  return <HTML content={research} />;
 };
 
 export const getStaticProps = async () => {

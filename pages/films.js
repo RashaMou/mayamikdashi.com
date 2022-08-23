@@ -1,5 +1,5 @@
 import { client } from '../lib/strapiClient';
-import ReactMarkdown from 'react-markdown';
+import HTML from '../components/html';
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from '../styles/films.module.css';
@@ -46,7 +46,7 @@ const Films = ({ films }) => {
                           priority={true}
                         />
                       </div>
-                      <ReactMarkdown>{selected.film_description}</ReactMarkdown>
+                      <HTML content={selected.film_description} />
                     </div>
                   ) : null}
                 </>
