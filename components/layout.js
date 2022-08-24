@@ -7,6 +7,8 @@ import styles from '../styles/layout.module.css';
 
 const Layout = ({ children }) => {
   const [current, setCurrent] = useState('home');
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <main>
       <div className={styles.body}>
@@ -27,19 +29,32 @@ const Layout = ({ children }) => {
                   HOME
                 </Link>
               </li>
-              <li className={styles.menu_item}>
-                <Link
-                  href='/publications'
-                  className={
-                    current === 'publications'
-                      ? 'styles.selected styles.link'
-                      : styles.link
-                  }
-                  onClick={() => setCurrent('publications')}
-                >
-                  PUBLICATIONS
-                </Link>
-              </li>
+              <div
+                onMouseEnter={() => setShowMenu(true)}
+                onMouseLeave={() => setShowMenu(false)}
+              >
+                <li className={styles.menu_item}>
+                  <Link
+                    href='/publications'
+                    className={
+                      current === 'publications'
+                        ? 'styles.selected styles.link'
+                        : styles.link
+                    }
+                    onClick={() => setCurrent('publications')}
+                  >
+                    PUBLICATIONS
+                  </Link>
+                </li>
+                {showMenu && (
+                  <ul
+                    className={styles.submenu_container}
+                    onClick={() => console.log('clicked')}
+                  >
+                    <li className={styles.submenu_item}>Sextarianism</li>
+                  </ul>
+                )}
+              </div>
               <li className={styles.menu_item}>
                 <Link
                   href='/research'

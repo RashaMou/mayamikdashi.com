@@ -44,6 +44,17 @@
   color: black;
   border-bottom: 2px solid black;
 }
+.submenu_container {
+  position: absolute;
+  width: 100%;
+}
+.submenu_item {
+  position: relative;
+  color: #999;
+  letter-spacing: 3px;
+  padding-top: 10px;
+  cursor: pointer;
+}
 .link {
   text-decoration: none;
   color: #999;
