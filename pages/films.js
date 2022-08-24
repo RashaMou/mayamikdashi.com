@@ -31,8 +31,9 @@ const Films = ({ films }) => {
             <div className={styles.films} key={film.id}>
               <div className={styles.film} onClick={() => handleClick(film)}>
                 <div className={styles.title_block}>
-                  <h2 className={styles.title}>{film.attributes.title}</h2>
-                  <h2 className={styles.title}>({film.attributes.year})</h2>
+                  <Image src='/arrow.svg' alt='arrow' width={10} height={10} />
+                  <h3 className={styles.title}>{film.attributes.title}</h3>
+                  <h3 className={styles.title}>({film.attributes.year})</h3>
                 </div>
                 <>
                   {selected.isOpen && selected.id == film.id ? (

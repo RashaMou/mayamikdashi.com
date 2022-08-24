@@ -9,8 +9,10 @@
   display: flex;
 }
 .title {
-  margin: 30px 15px 30px 0;
+  margin-left: 10px;
   cursor: pointer;
+  padding-top: 5px;
+  color: #999;
 }
 .year {
   cursor: pointer;

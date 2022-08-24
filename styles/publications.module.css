@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  cursor: pointer;
+}
+
+.title {
+  margin-left: 10px;
+  padding-top: 5px;
+  color: #999;
+}
