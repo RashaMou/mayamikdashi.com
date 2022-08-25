@@ -2,6 +2,7 @@ import { client } from '../lib/strapiClient';
 import { useState } from 'react';
 import Image from 'next/image';
 import HTML from '../components/html';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from '../styles/publications.module.css';
 
 const Publications = ({ publications }) => {
@@ -28,7 +29,7 @@ const Publications = ({ publications }) => {
   const seen_types = {};
 
   return (
-    <div>
+    <>
       {publications.map((pub, idx) => {
         const type = pub.attributes.type;
         if (type in seen_types) {
@@ -41,20 +42,38 @@ const Publications = ({ publications }) => {
                 <Image src='/arrow.svg' alt='arrow' width={10} height={10} />
                 <h3 className={styles.title}>{types[type]}</h3>
               </div>
-              {publications.map((entry) => {
-                if (
-                  entry.attributes.type === type &&
-                  selected.isOpen &&
-                  selected.id == entry.id
-                ) {
-                  return <HTML content={entry.attributes.description} />;
-                }
-              })}
+              <AnimatePresence initial={false}>
+                {publications.map((entry) => {
+                  if (
+                    entry.attributes.type === type &&
+                    selected.isOpen &&
+                    selected.id == entry.id
+                  ) {
+                    return (
+                      <motion.section
+                        key='content'
+                        initial='collapsed'
+                        animate='open'
+                        exit='collapsed'
+                        variants={{
+                          open: { opacity: 1 },
+                          collapsed: { opacity: 0 },
+                        }}
+                        transition={{
+                          duration: 0.5,
+                        }}
+                      >
+                        <HTML content={entry.attributes.description} />
+                      </motion.section>
+                    );
+                  }
+                })}
+              </AnimatePresence>
             </div>
           );
         }
       })}
-    </div>
+    </>
   );
 };
 

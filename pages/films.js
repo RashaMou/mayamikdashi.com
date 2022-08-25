@@ -2,6 +2,7 @@ import { client } from '../lib/strapiClient';
 import HTML from '../components/html';
 import { useState } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from '../styles/films.module.css';
 
 const Films = ({ films }) => {
@@ -35,9 +36,22 @@ const Films = ({ films }) => {
                   <h3 className={styles.title}>{film.attributes.title}</h3>
                   <h3 className={styles.title}>({film.attributes.year})</h3>
                 </div>
-                <>
+                <AnimatePresence initial={false}>
                   {selected.isOpen && selected.id == film.id ? (
-                    <div>
+                    <motion.section
+                      key='content'
+                      initial='collapsed'
+                      animate='open'
+                      exit='collapsed'
+                      variants={{
+                        open: { opacity: 1 },
+                        collapsed: { opacity: 0 },
+                      }}
+                      transition={{
+                        duration: 0.8,
+                        ease: [0.04, 0.62, 0.23, 0.98],
+                      }}
+                    >
                       <div className={styles.film_image}>
                         <Image
                           src={film.attributes.image.data[0].attributes.url}
@@ -48,9 +62,9 @@ const Films = ({ films }) => {
                         />
                       </div>
                       <HTML content={selected.film_description} />
-                    </div>
+                    </motion.section>
                   ) : null}
-                </>
+                </AnimatePresence>
               </div>
             </div>
           );
