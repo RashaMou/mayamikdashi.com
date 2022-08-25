@@ -47,11 +47,10 @@ const Layout = ({ children }) => {
                   </Link>
                 </li>
                 {showMenu && (
-                  <ul
-                    className={styles.submenu_container}
-                    onClick={() => console.log('clicked')}
-                  >
-                    <li className={styles.submenu_item}>Sextarianism</li>
+                  <ul className={styles.submenu_container}>
+                    <Link href='/sextarianism'>
+                      <li className={styles.submenu_item}>Sextarianism</li>
+                    </Link>
                   </ul>
                 )}
               </div>
