@@ -103,11 +103,6 @@ const Layout = ({ children }) => {
                   <Image src={twitter} width={35} height={35} alt='twitter' />
                 </Link>
               </li>
-              <li className={styles.logo}>
-                <Link href='mailto:mtmikdashi@gmail.com'>
-                  <Image src={email} width={35} height={35} alt='email' />
-                </Link>
-              </li>
             </ul>
           </footer>
         </div>

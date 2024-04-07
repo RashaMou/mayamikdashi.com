@@ -14,7 +14,8 @@
     "framer-motion": "^7.2.0",
     "next": "^12.2.6-canary.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "eslint": "8.22.0",
